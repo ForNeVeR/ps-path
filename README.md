@@ -4,10 +4,10 @@ PowerShell path extensions
 Usage
 -----
 
-# Get-Path
+### Get-Path
 `Get-Path` command returns list of paths for current process.
 
-# Add-Path
+### Add-Path
 Syntax:
 
     Add-Path [-Paths] paths [-Permanent] [-CurrentUser]
