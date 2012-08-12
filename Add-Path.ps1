@@ -2,11 +2,11 @@ param(
 	[Parameter(Mandatory = $true, Position = 0)]
 	[string[]] $Paths,
 
-	[bool] $Permanent = $false,
-	[bool] $CurrentUser = $true)
+	[switch] $Permanent,
+	[switch] $CurrentUser)
 
 if (-not $Permanent -and -not $CurrentUser) {
-	throw "Non-permanent changes are always user-specific."
+	throw "Non-permanent changes are always user-specific. You should specify at least one of -Permanent and -CurrentUser switches."
 } elseif (-not $Permanent -and $CurrentUser) {
 	$target = [EnvironmentVariableTarget]::Process
 } elseif ($Permanent -and -not $CurrentUser) {
