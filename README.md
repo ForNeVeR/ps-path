@@ -1,6 +1,12 @@
 PowerShell path extensions
 ==========================
 
+Synopsis
+--------
+`ps-path` is a set of PowerShell functions for managing the `Path` environment variable.
+
+Currently, there are two functions: `Get-Path` and `Add-Path`.
+
 Usage
 -----
 
@@ -13,6 +19,8 @@ Syntax:
     Add-Path [-Paths] paths [-Permanent] [-CurrentUser]
 
 `paths` may be single path or string array.
+
+Permanent changes may be global for machine (default) or local for current user.
 
 License
 -------
