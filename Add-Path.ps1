@@ -15,7 +15,11 @@ if (-not $Permanent -and -not $CurrentUser) {
 	$target = [EnvironmentVariableTarget]::User
 }
 
+$paths = $Paths | % {
+    $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_)
+}
+
 $currentPath = [Environment]::GetEnvironmentVariable("Path", $target)
-$addedPaths = [String]::Join(';', $Paths)
+$addedPaths = [String]::Join(';', $paths)
 $newPath = "$currentPath;$addedPaths"
 [Environment]::SetEnvironmentVariable("Path", $newPath, $target)
