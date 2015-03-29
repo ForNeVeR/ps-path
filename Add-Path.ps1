@@ -20,6 +20,10 @@ $paths = $Paths | % {
 }
 
 $currentPath = [Environment]::GetEnvironmentVariable("Path", $target)
-$addedPaths = [String]::Join(';', $paths)
-$newPath = "$currentPath;$addedPaths"
-[Environment]::SetEnvironmentVariable("Path", $newPath, $target)
+$existingPaths = $currentPath.Split([IO.Path]::PathSeparator)
+$paths = $paths | ? { -not ($_ -in $existingPaths) }
+if ($paths) {
+    $addedPaths = [String]::Join(';', $paths)
+    $newPath = "$currentPath;$addedPaths"
+    [Environment]::SetEnvironmentVariable("Path", $newPath, $target)
+}
