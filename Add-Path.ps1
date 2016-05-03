@@ -3,7 +3,10 @@ param(
 	[string[]] $Paths,
 
 	[switch] $Permanent,
-	[switch] $CurrentUser)
+	[switch] $CurrentUser
+)
+
+$ErrorActionPreference = 'Stop'
 
 if (-not $Permanent -and -not $CurrentUser) {
 	throw "Non-permanent changes are always user-specific. You should specify at least one of -Permanent and -CurrentUser switches."
@@ -26,4 +29,8 @@ if ($paths) {
     $addedPaths = [String]::Join(';', $paths)
     $newPath = "$currentPath;$addedPaths"
     [Environment]::SetEnvironmentVariable("Path", $newPath, $target)
+}
+
+if ($Permanent) {
+    & $PSCommandPath $Paths -CurrentUser
 }
