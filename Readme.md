@@ -1,7 +1,7 @@
 PowerShell path extensions [![Build status](https://ci.appveyor.com/api/projects/status/lvtnv59y27of6r52/branch/develop?svg=true)](https://ci.appveyor.com/project/ForNeVeR/ps-path/branch/develop)
 ==========================
 
-Current version: **0.0.1**.
+Current version: **0.1**.
 
 Synopsis
 --------
