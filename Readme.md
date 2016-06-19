@@ -1,4 +1,4 @@
-PowerShell path extensions [![Build status](https://ci.appveyor.com/api/projects/status/lvtnv59y27of6r52/branch/develop?svg=true)](https://ci.appveyor.com/project/ForNeVeR/ps-path/branch/develop)
+PowerShell path extensions [![Status Ventis][status-ventis]][andivionian-status-classifier] [![Build status][build-status]][appveyor]
 ==========================
 
 Current version: **0.1**.
@@ -35,4 +35,9 @@ Install [Pester][pester] and execute `Invoke-Pester` in the package directory.
 Please note that some of the tests may add items to your `Path` as a registry
 setting, so you may need to remove it manually.
 
+[andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-ventis-
+[appveyor]: https://ci.appveyor.com/project/ForNeVeR/ps-path/branch/develop
 [pester]: https://github.com/pester/Pester
+
+[build-status]: https://ci.appveyor.com/api/projects/status/lvtnv59y27of6r52/branch/develop?svg=true
+[status-ventis]: https://img.shields.io/badge/status-ventis-yellow.svg
