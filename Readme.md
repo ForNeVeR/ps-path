@@ -1,7 +1,7 @@
 PowerShell path extensions [![Status Ventis][status-ventis]][andivionian-status-classifier] [![Build status][build-status]][appveyor]
 ==========================
 
-Current version: **0.1**.
+Current version: **0.2**.
 
 Synopsis
 --------
