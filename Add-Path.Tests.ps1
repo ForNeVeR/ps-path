@@ -29,4 +29,15 @@ Describe "Add-Path" {
         $contains = $items -contains $randomName
         $contains | Should BeExactly $true
     }
+
+    It "should prepend the path when asked" {
+        $drive = Get-PSDrive | ? { $_.Provider.Name -eq 'FileSystem' } | Select-Object -First 1
+        $randomName = "${drive}:\$([Guid]::NewGuid())"
+
+        $oldPath = $env:PATH
+        & $AddPath $randomName -CurrentUser -Prepend
+        $newPath = $env:PATH
+
+        $newPath | Should BeExactly "$randomName$([IO.Path]::PathSeparator)$oldPath"
+    }
 }
